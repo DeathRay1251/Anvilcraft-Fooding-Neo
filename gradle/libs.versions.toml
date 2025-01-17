@@ -1,0 +1,31 @@
+[versions]
+registrate = "MC1.21-1.3.0+55"
+clothConfig = "15.0.130"
+jei = "19.17.0.193"
+rei = "16.0.762"
+emi = "1.1.13+1.21.1"
+jade = "15.3.4+neoforge"
+theoneprobe = "1.21_neo-12.0.3-5"
+kubejs = "2101.7.1-build.181"
+patchouli = "1.21-87-NEOFORGE"
+anvillib = "1.1.0+build.97"
+anvilcraft = "1.4.2+build.897"
+curios = "9.0.15+1.21.1"
+
+[libraries]
+registrate = { group = "com.tterrag.registrate", name = "Registrate", version.ref = "registrate" }
+clothConfig = { group = "me.shedaniel.cloth", name = "cloth-config-neoforge", version.ref = "clothConfig" }
+jeiCommonApi = { group = "mezz.jei", name = "jei-1.21.1-common-api", version.ref = "jei" }
+jeiForgeApi = { group = "mezz.jei", name = "jei-1.21.1-neoforge-api", version.ref = "jei" }
+jeiForgeImpl = { group = "mezz.jei", name = "jei-1.21.1-neoforge", version.ref = "jei" }
+reiPlugin = { group = "me.shedaniel", name = "RoughlyEnoughItems-default-plugin-neoforge", version.ref = "rei" }
+reiApi = { group = "me.shedaniel", name = "RoughlyEnoughItems-api-neoforge", version.ref = "rei" }
+reiForge = { group = "me.shedaniel", name = "RoughlyEnoughItems-neoforge", version.ref = "rei" }
+emi = { group = "dev.emi", name = "emi-neoforge", version.ref = "emi" }
+jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
+theoneprobe = { group = "mcjty.theoneprobe", name = "theoneprobe", version.ref = "theoneprobe" }
+kubejs = { group = "dev.latvian.mods", name = "kubejs-neoforge", version.ref = "kubejs" }
+patchouli = { group = "vazkii.patchouli", name = "Patchouli", version.ref = "patchouli" }
+anvillib = { group = "dev.anvilcraft.lib", name = "anvillib-neoforge-1.21.1", version.ref = "anvillib" }
+anvilcraft = { group = "dev.dubhe", name = "anvilcraft-neoforge-1.21.1", version.ref = "anvilcraft" }
+curios = { group = "top.theillusivec4.curios", name = "curios-neoforge", version.ref = "curios" }

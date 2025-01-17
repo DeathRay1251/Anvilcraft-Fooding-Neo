@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "moe.lobster.anvilcraft_fooding.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "anvilcraft_fooding.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
