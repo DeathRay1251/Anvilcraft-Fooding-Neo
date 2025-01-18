@@ -1,4 +1,4 @@
-package moe.lobster.anvilcraft_fooding.data;
+package moe.lobster.anvilcraft_fooding.init;
 
 import net.minecraft.world.food.FoodProperties;
 

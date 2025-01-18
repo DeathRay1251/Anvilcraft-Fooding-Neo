@@ -6,7 +6,8 @@
   "refmap": "anvilcraft_fooding.refmap.json",
   "mixins": [
     "ItemMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
   ],
