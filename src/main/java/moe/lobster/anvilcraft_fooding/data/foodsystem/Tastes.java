@@ -19,10 +19,9 @@ public enum Tastes {
     MUSHROOM("mushroom"),//蘑菇
     WARM("warm"),//暖
     MILK("milk"),//牛奶
-    WESTERN("western"),///西式
+    WESTERN("western"), // 西式
     CREAM("cream"),//奶油
-    BITTER("bitter")//苦
-    ;
+    BITTER("bitter");//苦
 
 
     private final String taste;
@@ -30,7 +29,8 @@ public enum Tastes {
     Tastes(String taste) {
         this.taste = taste;
     }
-    public String get(){
+
+    public String get() {
         return taste;
     }
 }

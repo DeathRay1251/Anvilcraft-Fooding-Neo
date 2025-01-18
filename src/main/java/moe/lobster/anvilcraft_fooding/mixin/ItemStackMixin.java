@@ -1,6 +1,7 @@
 package moe.lobster.anvilcraft_fooding.mixin;
 
-import moe.lobster.anvilcraft_fooding.init.minecraft.FoodFix;
+import moe.lobster.anvilcraft_fooding.data.FoodTagBuilder;
+import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.component.PatchedDataComponentMap;
@@ -16,26 +17,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import javax.annotation.Nullable;
 
-import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.MOD_ID;
-
 @Mixin(ItemStack.class)
-public abstract class ItemStackMixin {
+public abstract class ItemStackMixin implements DataComponentHolder {
+    @Shadow
+    @Nullable
+    public abstract <T> T set(DataComponentType<? super T> component, @Nullable T value);
 
-
-
-
-    @Inject(method = "<init>(Lnet/minecraft/world/level/ItemLike;ILnet/minecraft/core/component/PatchedDataComponentMap;)V",at=@At("TAIL"))
-    private void tag( ItemLike item, int count, PatchedDataComponentMap components, CallbackInfo ci ){
-        if( FoodFix.FoodList.containsKey(item.asItem())){
-            this.set( DataComponents.CUSTOM_DATA,foodData( FoodFix.FoodList.get( item.asItem() ) ));
-        }
-    }
-
-    @Shadow @Nullable public abstract < T > T set( DataComponentType< ? super T > component, @org.jetbrains.annotations.Nullable T value );
-
-    private static CustomData foodData( CompoundTag compoundTag ){
-        CompoundTag compoundTag2 = new CompoundTag();
-        compoundTag2.put( MOD_ID,compoundTag );
-        return CustomData.of( compoundTag2 );
+    @Inject(method = "<init>(Lnet/minecraft/world/level/ItemLike;ILnet/minecraft/core/component/PatchedDataComponentMap;)V", at = @At("TAIL"))
+    private void tag(ItemLike item, int count, PatchedDataComponentMap components, CallbackInfo ci) {
+        if (!FoodTagBuilder.contains(item)) return;
+        CustomData customData = this.get(DataComponents.CUSTOM_DATA);
+        CompoundTag tag = new CompoundTag();
+        if (customData != null) tag = customData.copyTag();
+        this.set(DataComponents.CUSTOM_DATA, FoodTagBuilder.get(item).toCustomData(tag));
     }
 }

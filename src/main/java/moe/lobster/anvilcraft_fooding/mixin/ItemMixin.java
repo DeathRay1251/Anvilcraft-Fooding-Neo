@@ -14,8 +14,8 @@ import static moe.lobster.anvilcraft_fooding.init.ModItems.test;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "finishUsingItem",at=@At("HEAD"))
-    private void finishUsingItem( ItemStack stack, Level level, LivingEntity livingEntity, CallbackInfoReturnable< ItemStack > cir ){
+    @Inject(method = "finishUsingItem", at = @At("HEAD"))
+    private void finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity, CallbackInfoReturnable<ItemStack> cir) {
         test(stack);
     }
 }

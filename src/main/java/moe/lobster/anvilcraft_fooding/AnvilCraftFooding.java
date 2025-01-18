@@ -22,13 +22,13 @@ public class AnvilCraftFooding {
     public static final String MOD_NAME = "AnvilCraft-Fooding";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
     public static final Gson GSON =
-            new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
+        new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
     public static AnvilCraftConfig config = AutoConfig.register(AnvilCraftConfig.class, JanksonConfigSerializer::new)
-            .getConfig();
+        .getConfig();
 
     public static final Registrate REGISTRATE = Registrate.create(MOD_ID);
 
-    public AnvilCraftFooding( IEventBus modEventBus) {
+    public AnvilCraftFooding(IEventBus modEventBus) {
         ModItems.register();
         registerEvents(modEventBus);
 
@@ -37,11 +37,11 @@ public class AnvilCraftFooding {
     }
 
     private static void registerEvents(@NotNull IEventBus eventBus) {
-        NeoForge.EVENT_BUS.addListener( AnvilCraftFooding::registerCommand );
+        NeoForge.EVENT_BUS.addListener(AnvilCraftFooding::registerCommand);
 
     }
 
-    public static @NotNull ResourceLocation of( String path) {
+    public static @NotNull ResourceLocation of(String path) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
