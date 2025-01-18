@@ -1,0 +1,301 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 2025-01-18 22:12:38
+Description: Bootstrap
+
+java.lang.RuntimeException: java.lang.ExceptionInInitializerError
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.BackgroundWaiter.runAndTick(BackgroundWaiter.java:29) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:114) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.NeoForgeClientUserdevLaunchHandler.runService(NeoForgeClientUserdevLaunchHandler.java:23) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:55) [DevLaunch-1.0.1.jar:?] {}
+Caused by: java.lang.ExceptionInInitializerError
+	at TRANSFORMER/anvilcraft@1.4.2/dev.dubhe.anvilcraft.init.ModItems.<clinit>(ModItems.java:75) ~[anvilcraft-neoforge-1.21.1-1.4.2+build.897.jar%23187!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/anvilcraft_fooding@1.0-SNAPSHOT/moe.lobster.anvilcraft_fooding.init.minecraft.FoodFix.<clinit>(FoodFix.java:149) ~[%23185!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.handler$zfk000$anvilcraft_fooding$tag(ItemStack.java:2213) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:269) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:261) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:245) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.FoodProperties$Builder.usingConvertsTo(FoodProperties.java:109) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.Foods.stew(Foods.java:87) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.Foods.<clinit>(Foods.java:12) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.Items.<clinit>(Items.java:927) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.LightBlock.getShape(LightBlock.java:64) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:724) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:720) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour.getCollisionShape(BlockBehaviour.java:366) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:BlockBehaviourMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache.<init>(BlockBehaviour.java:997) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.initCache(BlockBehaviour.java:557) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.Blocks.<clinit>(Blocks.java:7811) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.FireBlock.bootStrap(FireBlock.java:350) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Bootstrap.bootStrap(Bootstrap.java:48) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.lambda$main$0(Main.java:114) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?] {}
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[?:?] {}
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?] {}
+Caused by: java.lang.NullPointerException: Cannot invoke "net.neoforged.fml.ModList.getModContainerById(String)" because the return value of "net.neoforged.fml.ModList.get()" is null
+	at TRANSFORMER/Registrate.MC1._21._55@1.3.0+55/com.tterrag.registrate.Registrate.create(Registrate.java:23) ~[Registrate-MC1.21-1.3.0+55.jar%23206!/:?] {re:classloading}
+	at TRANSFORMER/anvilcraft@1.4.2/dev.dubhe.anvilcraft.AnvilCraft.<clinit>(AnvilCraft.java:65) ~[anvilcraft-neoforge-1.21.1-1.4.2+build.897.jar%23187!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/anvilcraft@1.4.2/dev.dubhe.anvilcraft.init.ModItems.<clinit>(ModItems.java:75) ~[anvilcraft-neoforge-1.21.1-1.4.2+build.897.jar%23187!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/anvilcraft_fooding@1.0-SNAPSHOT/moe.lobster.anvilcraft_fooding.init.minecraft.FoodFix.<clinit>(FoodFix.java:149) ~[%23185!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.handler$zfk000$anvilcraft_fooding$tag(ItemStack.java:2213) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:269) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:261) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.ItemStack.<init>(ItemStack.java:245) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:ItemStackMixin from mod kubejs,pl:mixin:APP:kubejs.mixins.json:ItemStackClientMixin from mod kubejs,pl:mixin:APP:anvilcraft_fooding.mixins.json:ItemStackMixin from mod anvilcraft_fooding,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.FoodProperties$Builder.usingConvertsTo(FoodProperties.java:109) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.Foods.stew(Foods.java:87) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.food.Foods.<clinit>(Foods.java:12) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.item.Items.<clinit>(Items.java:927) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.LightBlock.getShape(LightBlock.java:64) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:724) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:720) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour.getCollisionShape(BlockBehaviour.java:366) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:kubejs.mixins.json:BlockBehaviourMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache.<init>(BlockBehaviour.java:997) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.initCache(BlockBehaviour.java:557) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,re:classloading,pl:mixin:APP:kubejs.mixins.json:BlockStateBaseMixin from mod kubejs,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.Blocks.<clinit>(Blocks.java:7811) ~[neoforge-21.1.95.jar%23183!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.block.FireBlock.bootStrap(FireBlock.java:350) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Bootstrap.bootStrap(Bootstrap.java:48) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.lambda$main$0(Main.java:114) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?] {}
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[?:?] {}
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.BackgroundWaiter.runAndTick(BackgroundWaiter.java:29) ~[loader-4.0.34.jar%23139!/:4.0] {}
+-- Initialization --
+Details:
+	Modules: 
+		ADVAPI32.dll:高级 Windows 32 基本 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		COMCTL32.dll:用户体验控件库:6.10 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPT32.dll:加密 API32:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTBASE.DLL:Base cryptographic API DLL:10.0.22621.4746 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTSP.dll:Cryptographic Service Provider API:10.0.22621.3672 (WinBuild.160101.0800):Microsoft Corporation
+		CoreMessaging.dll:Microsoft CoreMessaging Dll:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		CoreUIComponents.dll:Microsoft Core UI Components Dll:10.0.22621.4541:Microsoft Corporation
+		D3DSCache.dll:Microsoft (R) D3D 着色器缓存库:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		DBGHELP.DLL:Windows Image Helper:10.0.22621.3593 (WinBuild.160101.0800):Microsoft Corporation
+		DEVOBJ.dll:Device Information Set DLL:10.0.22621.2506 (WinBuild.160101.0800):Microsoft Corporation
+		DNSAPI.dll:DNS 客户端 API DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		GDI32.dll:GDI Client DLL:10.0.22621.4036 (WinBuild.160101.0800):Microsoft Corporation
+		GLU32.dll:OpenGL 实用工具库 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		IMM32.DLL:Multi-User Windows IMM32 API Client DLL:10.0.22621.3374 (WinBuild.160101.0800):Microsoft Corporation
+		IPHLPAPI.DLL:IP 帮助程序 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		KERNEL32.DLL:Windows NT 基本 API 客户端 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		KERNELBASE.dll:Windows NT 基本 API 客户端 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		MSCTF.dll:MSCTF 服务器 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		NSI.dll:NSI User-mode interface DLL:10.0.22621.4746 (WinBuild.160101.0800):Microsoft Corporation
+		OLEAUT32.dll:OLEAUT32.DLL:10.0.22621.3672 (WinBuild.160101.0800):Microsoft Corporation
+		Oleacc.dll:Active Accessibility Core Component:7.2.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		POWRPROF.dll:电源配置文件帮助程序 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		PSAPI.DLL:Process Status Helper:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		RPCRT4.dll:远程过程调用运行时:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		SETUPAPI.dll:Windows 安装程序 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		SHCORE.dll:SHCORE:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		SHELL32.dll:Windows Shell 公用 DLL:10.0.22621.4745 (WinBuild.160101.0800):Microsoft Corporation
+		UMPDC.dll:User Mode Power Dependency Coordinator:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		USER32.dll:多用户 Windows 用户 API 客户端 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		USERENV.dll:Userenv:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		VCRUNTIME140.dll:Microsoft® C Runtime Library:14.31.31103.0:Microsoft Corporation
+		VERSION.dll:Version Checking and File Installation Libraries:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		WINHTTP.dll:Windows HTTP 服务:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		WINMM.dll:MCI API DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		WINSTA.dll:Winstation Library:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		WINTRUST.dll:Microsoft Trust Verification APIs:10.0.22621.4746 (WinBuild.160101.0800):Microsoft Corporation
+		WS2_32.dll:Windows Socket 2.0 32 位 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		WTSAPI32.dll:Windows Remote Desktop Session Host Server SDK APIs:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		amdihk64.dll:Radeon Settings: Host Service:2,00,00,1788:Advanced Micro Devices, Inc.
+		amsi.dll:Anti-Malware Scan Interface:10.0.22621.3527 (WinBuild.160101.0800):Microsoft Corporation
+		apphelp.dll:应用程序兼容性客户端库:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		aticfx64.dll:aticfx64.dll:8.17.10.1697:Advanced Micro Devices, Inc. 
+		atidxx64.dll:atidxx64.dll:8.17.10.01043:Advanced Micro Devices, Inc. 
+		atiuxp64.dll:atiuxpag.dll:8.14.01.6564:Advanced Micro Devices, Inc. 
+		bcrypt.dll:Windows 加密基元库:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		bcryptPrimitives.dll:Windows Cryptographic Primitives Library:10.0.22621.4317 (WinBuild.160101.0800):Microsoft Corporation
+		cfgmgr32.dll:Configuration Manager DLL:10.0.22621.2506 (WinBuild.160101.0800):Microsoft Corporation
+		clbcatq.dll:COM+ Configuration Catalog:2001.12.10941.16384 (WinBuild.160101.0800):Microsoft Corporation
+		combase.dll:用于 Windows 的 Microsoft COM:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		cryptnet.dll:Crypto Network Related API:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		d3d11.dll:Direct3D 11 Runtime:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		dbgcore.DLL:Windows Core Debugging Helpers:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		dcomp.dll:Microsoft DirectComposition Library:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		dinput8.dll:Microsoft DirectInput:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		directxdatabasehelper.dll:DirectXDatabaseHelper:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		drvstore.dll:Driver Store API:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		dt_socket.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		dwmapi.dll:Microsoft 桌面窗口管理器 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		dxcore.dll:DXCore:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		dxgi.dll:DirectX Graphics Infrastructure:10.0.22621.4036 (WinBuild.160101.0800):Microsoft Corporation
+		fwpuclnt.dll:FWP/IPsec 用户模式 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		gdi32full.dll:GDI Client DLL:10.0.22621.4391 (WinBuild.160101.0800):Microsoft Corporation
+		glfw.dll:GLFW 3.4.0 DLL:3.4.0:GLFW
+		icm32.dll:Microsoft Color Management Module (CMM):10.0.22621.4455 (WinBuild.160101.0800):Microsoft Corporation
+		imagehlp.dll:Windows NT Image Helper:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		inputhost.dll:InputHost:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		instrument.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		java.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		java.exe:OpenJDK Platform binary:21.0.4.0:BellSoft
+		jdwp.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		jemalloc.dll
+		jimage.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		jli.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		jna4424066155265322412.dll:JNA native library:7.0.0:Java(TM) Native Access (JNA)
+		jsvml.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		jvm.dll:OpenJDK 64-Bit server VM:21.0.4.0:BellSoft
+		kernel.appcore.dll:AppModel API Host:10.0.22621.3958 (WinBuild.160101.0800):Microsoft Corporation
+		lwjgl.dll
+		lwjgl_opengl.dll
+		lwjgl_stb.dll
+		management.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		management_ext.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		msasn1.dll:ASN.1 Runtime APIs:10.0.22621.2506 (WinBuild.160101.0800):Microsoft Corporation
+		mscms.dll:Microsoft 颜色匹配系统 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		msvcp140.dll:Microsoft® C Runtime Library:14.31.31103.0:Microsoft Corporation
+		msvcp_win.dll:Microsoft® C Runtime Library:10.0.22621.3374 (WinBuild.160101.0800):Microsoft Corporation
+		msvcrt.dll:Windows NT CRT DLL:7.0.22621.2506 (WinBuild.160101.0800):Microsoft Corporation
+		mswsock.dll:Microsoft Windows Sockets 2.0 服务提供程序:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		napinsp.dll:电子邮件命名填充提供程序:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		net.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		nio.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		nlansp_c.dll:NLA Namespace Service Provider DLL:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		ntdll.dll:NT 层 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		ntmarta.dll:Windows NT MARTA 提供程序:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		nvapi64.dll:NVIDIA NVAPI Library, Version 566.14 :32.0.15.6614:NVIDIA Corporation
+		nvgpucomp64.dll:NVIDIA GPU Compiler Driver, Version 566.14 :32.0.15.6614:NVIDIA Corporation
+		nvldumdx.dll:NVIDIA Driver Loader, Version 566.14 :32.0.15.6614:NVIDIA Corporation
+		nvoglv64.dll:NVIDIA Compatible OpenGL ICD:32.0.15.6614:NVIDIA Corporation
+		nvppex.dll:NVIDIA Driver, Version 566.14 :32.0.15.6614:NVIDIA Corporation
+		nvspcap64.dll:NVIDIA Game Proxy:3.28.0.417:NVIDIA Corporation
+		nvwgf2umx.dll:NVIDIA D3D10 Driver, Version 566.14 :32.0.15.6614:NVIDIA Corporation
+		ole32.dll:用于 Windows 的 Microsoft OLE:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		opengl32.dll:OpenGL Client DLL:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		pdh.dll:Windows 性能数据助手 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		perfos.dll:Windows 系统性能对象 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		perfproc.dll:Windows 系统进程性能对象 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		pfclient.dll:SysMain Client:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		pnrpnsp.dll:PNRP 命名空间提供程序:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		profapi.dll:User Profile Basic API:10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		rasadhlp.dll:Remote Access AutoDial Helper:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		rsaenh.dll:Microsoft Enhanced Cryptographic Provider:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		sechost.dll:Host for SCM/SDDL/LSA Lookup APIs:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		shlwapi.dll:外壳简易实用工具库:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		textinputframework.dll:"TextInputFramework.DYNLINK":10.0.22621.4541 (WinBuild.160101.0800):Microsoft Corporation
+		twinapi.appcore.dll:twinapi.appcore:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		ucrtbase.dll:Microsoft® C Runtime Library:10.0.22621.3593 (WinBuild.160101.0800):Microsoft Corporation
+		uxtheme.dll:Microsoft UxTheme 库:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		vcruntime140_1.dll:Microsoft® C Runtime Library:14.31.31103.0:Microsoft Corporation
+		verify.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+		win32u.dll:Win32u:10.0.22621.4601 (WinBuild.160101.0800):Microsoft Corporation
+		windows.storage.dll:Microsoft WinRT Storage API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		winrnr.dll:LDAP RnR Provider DLL:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		wintypes.dll:Windows 基本类型 DLL:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		wldp.dll:Windows 锁定策略:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		wshbth.dll:Windows Sockets Helper DLL:10.0.22621.3958 (WinBuild.160101.0800):Microsoft Corporation
+		xinput1_4.dll:Microsoft 公共控制器 API:10.0.22621.4885 (WinBuild.160101.0800):Microsoft Corporation
+		zip.dll:OpenJDK Platform binary:21.0.4.0:BellSoft
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.main.Main.main(Main.java:114) ~[neoforge-21.1.95.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:124) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.NeoForgeClientUserdevLaunchHandler.runService(NeoForgeClientUserdevLaunchHandler.java:23) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.34/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.34.jar%23139!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.4/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.4.jar%23121!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:55) [DevLaunch-1.0.1.jar:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 21.0.4, BellSoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), BellSoft
+	Memory: 168461752 bytes (160 MiB) / 478150656 bytes (456 MiB) up to 17020485632 bytes (16232 MiB)
+	CPUs: 16
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 7 5800H with Radeon Graphics         
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.19
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 16
+	Graphics card #0 name: AMD Radeon(TM) Graphics
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 512.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 30.0.13040.13
+	Graphics card #1 name: NVIDIA GeForce RTX 3070 Laptop GPU
+	Graphics card #1 vendor: NVIDIA
+	Graphics card #1 VRAM (MiB): 8192.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.15.6614
+	Memory slot #0 capacity (MiB): 32768.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 32768.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 69021.39
+	Virtual memory used (MiB): 35839.05
+	Swap memory total (MiB): 4096.00
+	Swap memory used (MiB): 1.38
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 165197.09, total: 467199.31
+	Space in storage for workdir (MiB): available: 1292594.25, total: 1907712.00
+	JVM Flags: 0 total; 
+	Launched Version: 21.1.95
+	Backend library: LWJGL version 3.3.3+5
+	Backend API: Unknown
+	Window size: <not initialized>
+	GFLW Platform: win32
+	GL Caps: ERR
+	GL debug messages: <disabled>
+	Is Modded: Definitely; Client brand changed to 'neoforge'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: zh_CN
+	System encoding: GBK
+	File encoding: UTF-8
+	CPU: <unknown>
