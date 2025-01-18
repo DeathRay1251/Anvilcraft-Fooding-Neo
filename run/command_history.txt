@@ -1,9 +1,0 @@
-/give Dev anvilcraft_fooding:chili
-/data get entity Dev hand
-/data get entity Dev
-/data get entity Dev SelecedInHand
-/data get entity Dev SelectedItemSlot
-/data get entity Dev SelectedInHand
-/data get entity Dev SelectedItem
-/give Dev anvilcraft_fooding:chili
-/data get entity Dev SelectedItem
