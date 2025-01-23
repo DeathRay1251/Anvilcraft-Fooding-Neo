@@ -1,4 +1,4 @@
-package moe.lobster.anvilcraft_fooding.data;
+package moe.lobster.anvilcraft_fooding.data.foodsystem;
 
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
 import net.minecraft.nbt.CompoundTag;
@@ -33,7 +33,6 @@ public class FoodTagBuilder {
         tag.putInt(key, value);
         return this;
     }
-
 
     public void register() {
         if (this.item == null) return;

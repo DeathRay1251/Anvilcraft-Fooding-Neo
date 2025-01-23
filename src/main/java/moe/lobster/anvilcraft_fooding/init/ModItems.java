@@ -1,7 +1,7 @@
 package moe.lobster.anvilcraft_fooding.init;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
-import moe.lobster.anvilcraft_fooding.data.FoodTagBuilder;
+import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.Tastes;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;

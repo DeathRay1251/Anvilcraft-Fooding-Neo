@@ -1,6 +1,7 @@
 package moe.lobster.anvilcraft_fooding.mixin;
 
-import moe.lobster.anvilcraft_fooding.data.FoodTagBuilder;
+import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
+import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
 import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
@@ -29,6 +30,7 @@ public abstract class ItemStackMixin implements DataComponentHolder {
         CustomData customData = this.get(DataComponents.CUSTOM_DATA);
         CompoundTag tag = new CompoundTag();
         if (customData != null) tag = customData.copyTag();
+        if (tag.contains(AnvilCraftFooding.MOD_ID)) return;
         this.set(DataComponents.CUSTOM_DATA, FoodTagBuilder.get(item).toCustomData(tag));
     }
 }

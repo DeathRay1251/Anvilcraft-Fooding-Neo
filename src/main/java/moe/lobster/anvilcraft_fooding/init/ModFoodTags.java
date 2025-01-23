@@ -1,7 +1,7 @@
 package moe.lobster.anvilcraft_fooding.init;
 
 import dev.dubhe.anvilcraft.init.ModItems;
-import moe.lobster.anvilcraft_fooding.data.FoodTagBuilder;
+import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.Tastes;
 import net.minecraft.world.item.Items;
 
