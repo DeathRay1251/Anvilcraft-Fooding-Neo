@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import org.jetbrains.annotations.NotNull;
 
-import static moe.lobster.anvilcraft_fooding.data.AddSeasoning.addSeasoning;
+import static moe.lobster.anvilcraft_fooding.data.event.AddSeasoning.addSeasoning;
 
-public class SeasonCraftEventListener {
+public class AnvilEventListener {
     @SubscribeEvent
     public static void onLand(@NotNull AnvilFallOnLandEvent event) {
         Level level = event.getLevel();

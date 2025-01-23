@@ -7,7 +7,7 @@ import dev.dubhe.anvilcraft.config.AnvilCraftConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import moe.lobster.anvilcraft_fooding.event.AnvilDiePlayerEventListener;
-import moe.lobster.anvilcraft_fooding.event.SeasonCraftEventListener;
+import moe.lobster.anvilcraft_fooding.event.AnvilEventListener;
 import moe.lobster.anvilcraft_fooding.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
@@ -40,7 +40,7 @@ public class AnvilCraftFooding {
 
     private static void registerEvents(@NotNull IEventBus eventBus) {
         NeoForge.EVENT_BUS.addListener(AnvilCraftFooding::registerCommand);
-        NeoForge.EVENT_BUS.addListener(SeasonCraftEventListener::onLand);
+        NeoForge.EVENT_BUS.addListener(AnvilEventListener::onLand);
         NeoForge.EVENT_BUS.addListener(AnvilDiePlayerEventListener::diedPlayer);
     }
 
