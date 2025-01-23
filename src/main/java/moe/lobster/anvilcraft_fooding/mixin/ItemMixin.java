@@ -2,7 +2,7 @@ package moe.lobster.anvilcraft_fooding.mixin;
 
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.FinishEating;
-import moe.lobster.anvilcraft_fooding.data.foodsystem.IHasFoodsData;
+import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,7 +21,7 @@ public class ItemMixin {
     @Inject(method = "finishUsingItem", at = @At("HEAD"))
     private void finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity, CallbackInfoReturnable<ItemStack> cir) {
         if (livingEntity.level().isClientSide()) return;
-        if (!(livingEntity instanceof IHasFoodsData player)) return;
+        if (!(livingEntity instanceof IHasFoodsDataInjector player)) return;
         CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
         if (customData == null) return;
         if (!customData.contains(AnvilCraftFooding.MOD_ID)) return;

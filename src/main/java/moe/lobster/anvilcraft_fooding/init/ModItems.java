@@ -3,6 +3,7 @@ package moe.lobster.anvilcraft_fooding.init;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.Tastes;
+import moe.lobster.anvilcraft_fooding.init.data.ModFoods;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.Tags;

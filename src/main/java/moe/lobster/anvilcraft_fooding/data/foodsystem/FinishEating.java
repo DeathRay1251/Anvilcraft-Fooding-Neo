@@ -1,5 +1,6 @@
 package moe.lobster.anvilcraft_fooding.data.foodsystem;
 
+import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -14,7 +15,7 @@ import static moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards.unlikeList;
 public class FinishEating {
     //MOD_ID -> {tastes -> {(times,1),(Buff,0),(Like,0)} }
     @SuppressWarnings("DataFlowIssue")
-    public static void onFinishEating(IHasFoodsData player, CompoundTag compoundTag) {
+    public static void onFinishEating(IHasFoodsDataInjector player, CompoundTag compoundTag) {
         if (compoundTag == null) return;
         CompoundTag playerFoodsData = player.getPlayerFoodsData().copy();
         CompoundTag newPlayerFoodsData = new CompoundTag();

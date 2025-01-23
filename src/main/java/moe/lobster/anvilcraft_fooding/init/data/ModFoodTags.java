@@ -1,4 +1,4 @@
-package moe.lobster.anvilcraft_fooding.init;
+package moe.lobster.anvilcraft_fooding.init.data;
 
 import dev.dubhe.anvilcraft.init.ModItems;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
