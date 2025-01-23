@@ -51,9 +51,9 @@ public class FinishEating {
             }
         }
         Set<String> keysPlayer = playerFoodsData.getAllKeys();
-        for(String key:keysPlayer){
-            if(!newPlayerFoodsData.contains(key)){
-                newPlayerFoodsData.put(key,playerFoodsData.get(key));
+        for (String key : keysPlayer) {
+            if (!newPlayerFoodsData.contains(key)) {
+                newPlayerFoodsData.put(key, playerFoodsData.get(key));
             }
         }
         player.setPlayerFoodsData(newPlayerFoodsData);

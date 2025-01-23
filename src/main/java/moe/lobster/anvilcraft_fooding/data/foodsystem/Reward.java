@@ -15,21 +15,26 @@ public class Reward {
         this.items = items;
         this.effects = effects;
     }
-    public Reward(){
+
+    public Reward() {
         items = new ArrayList<>();
         effects = new ArrayList<>();
     }
-    public List<Item> getItemList(){
+
+    public List<Item> getItemList() {
         return this.items;
     }
-    public List<Holder<MobEffect>> getEffectList(){
+
+    public List<Holder<MobEffect>> getEffectList() {
         return this.effects;
     }
-    public void setItemList(List<Item> items){
+
+    public void setItemList(List<Item> items) {
         this.items.clear();
         this.items.addAll(items);
     }
-    public void setEffectList(List<Holder<MobEffect>> effects){
+
+    public void setEffectList(List<Holder<MobEffect>> effects) {
         this.effects.clear();
         this.effects.addAll(effects);
     }
