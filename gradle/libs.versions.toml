@@ -9,7 +9,7 @@ theoneprobe = "1.21_neo-12.0.3-5"
 kubejs = "2101.7.1-build.181"
 patchouli = "1.21-87-NEOFORGE"
 anvillib = "1.1.0+build.97"
-anvilcraft = "1.4.2+build.900"
+anvilcraft = "1.4.2+build.907"
 curios = "9.0.15+1.21.1"
 
 [libraries]
