@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 public class DiePlayer {
-    @SuppressWarnings("DataFlowIssue")
     public static void diePlayer(IHasFoodsDataInjector player) {
         CompoundTag playerFoodsData = player.getPlayerFoodsData().copy();
         if (playerFoodsData.isEmpty()) return;

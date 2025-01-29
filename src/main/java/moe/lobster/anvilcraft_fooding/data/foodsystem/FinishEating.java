@@ -7,11 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 import java.util.Random;
 import java.util.Set;
 
-import static moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards.emotionLimit;
-import static moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards.giveRewards;
-import static moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards.likeList;
-import static moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards.unlikeList;
-
 public class FinishEating {
     //MOD_ID -> {tastes -> {(times,1),(Buff,0),(Like,0)} }
     @SuppressWarnings("DataFlowIssue")
@@ -28,16 +23,16 @@ public class FinishEating {
                 int buff = infoTag.getInt("Buff");
                 int depth = compoundTag.getInt(key);
                 times += 1;
-                if (times == emotionLimit) {
+                if (times == Rewards.emotionLimit) {
                     Random random = new Random();
                     like = random.nextInt(2) * 2 - 1;
                     if (like == 1) {
-                        buff = random.nextInt(0, likeList.size());
+                        buff = random.nextInt(0, Rewards.likeList.size());
                     } else {
-                        buff = random.nextInt(0, unlikeList.size());
+                        buff = random.nextInt(0, Rewards.unlikeList.size());
                     }
                 }
-                giveRewards((ServerPlayer) player, like, times, buff, depth);
+                Rewards.giveRewards((ServerPlayer) player, like, times, buff, depth);
                 CompoundTag newInfoTag = new CompoundTag();
                 newInfoTag.putInt("Like", like);
                 newInfoTag.putInt("Times", times);
