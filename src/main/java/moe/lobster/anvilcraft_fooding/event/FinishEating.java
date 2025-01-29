@@ -1,5 +1,6 @@
-package moe.lobster.anvilcraft_fooding.data.foodsystem;
+package moe.lobster.anvilcraft_fooding.event;
 
+import moe.lobster.anvilcraft_fooding.init.Rewards;
 import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;

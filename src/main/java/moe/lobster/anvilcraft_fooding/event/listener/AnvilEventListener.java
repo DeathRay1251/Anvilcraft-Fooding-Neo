@@ -1,7 +1,7 @@
-package moe.lobster.anvilcraft_fooding.event;
+package moe.lobster.anvilcraft_fooding.event.listener;
 
 import dev.dubhe.anvilcraft.api.event.anvil.AnvilFallOnLandEvent;
-import moe.lobster.anvilcraft_fooding.data.event.AddSeasoning;
+import moe.lobster.anvilcraft_fooding.event.AddSeasoning;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.Level;

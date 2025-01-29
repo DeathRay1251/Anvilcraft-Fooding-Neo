@@ -1,7 +1,7 @@
-package moe.lobster.anvilcraft_fooding.event;
+package moe.lobster.anvilcraft_fooding.event.listener;
 
 import dev.dubhe.anvilcraft.api.event.anvil.AnvilHurtEntityEvent;
-import moe.lobster.anvilcraft_fooding.data.event.DiePlayer;
+import moe.lobster.anvilcraft_fooding.event.DiePlayer;
 import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;

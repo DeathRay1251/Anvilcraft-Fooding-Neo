@@ -1,4 +1,4 @@
-package moe.lobster.anvilcraft_fooding.data.event;
+package moe.lobster.anvilcraft_fooding.event;
 
 import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.nbt.CompoundTag;

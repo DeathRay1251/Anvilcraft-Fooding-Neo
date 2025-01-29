@@ -1,7 +1,7 @@
-package moe.lobster.anvilcraft_fooding.event;
+package moe.lobster.anvilcraft_fooding.event.listener;
 
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
-import moe.lobster.anvilcraft_fooding.data.foodsystem.Rewards;
+import moe.lobster.anvilcraft_fooding.init.Rewards;
 import moe.lobster.anvilcraft_fooding.init.data.ModFoodTags;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

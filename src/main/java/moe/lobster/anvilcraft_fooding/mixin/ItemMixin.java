@@ -1,7 +1,7 @@
 package moe.lobster.anvilcraft_fooding.mixin;
 
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
-import moe.lobster.anvilcraft_fooding.data.foodsystem.FinishEating;
+import moe.lobster.anvilcraft_fooding.event.FinishEating;
 import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;

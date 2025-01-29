@@ -1,5 +1,6 @@
-package moe.lobster.anvilcraft_fooding.data.foodsystem;
+package moe.lobster.anvilcraft_fooding.init;
 
+import moe.lobster.anvilcraft_fooding.data.foodsystem.Reward;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
@@ -15,8 +16,8 @@ import java.util.List;
 
 public class Rewards {
     public static final int emotionLimit = 4;
-    static List<Reward> likeList = new ArrayList<>();
-    static List<Reward> unlikeList = new ArrayList<>();
+    public static List<Reward> likeList = new ArrayList<>();
+    public static List<Reward> unlikeList = new ArrayList<>();
 
     public static void register() {
         Reward like1 = RewardBuilder.create()

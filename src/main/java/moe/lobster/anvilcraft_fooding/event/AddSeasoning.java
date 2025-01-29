@@ -1,4 +1,4 @@
-package moe.lobster.anvilcraft_fooding.data.event;
+package moe.lobster.anvilcraft_fooding.event;
 
 import com.google.common.base.Predicates;
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
