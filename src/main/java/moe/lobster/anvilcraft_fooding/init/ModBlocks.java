@@ -38,9 +38,7 @@ public class ModBlocks {
             HolderLookup.RegistryLookup<Enchantment> lookup = tables.getRegistries().lookupOrThrow(Registries.ENCHANTMENT);
             LootItemCondition.Builder builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CHILI_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ChiliBlock.AGE, 7));
-            tables.add(
-                ModBlocks.CHILI_CROP.get(),
-                tables.applyExplosionDecay(
+            tables.add(ModBlocks.CHILI_CROP.get(), tables.applyExplosionDecay(
                     ModBlocks.CHILI_CROP.get(),
                     LootTable.lootTable()
                         .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModBlocks.CHILI_CROP.asItem())))
