@@ -26,9 +26,9 @@ public class ModBlocks {
         .blockstate((context, provider) -> {
         })
         .loot((table,block)->{
-            LootItemCondition.Builder builder6 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CHILI_CROP.get())
+            LootItemCondition.Builder builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CHILI_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ChiliBlock.AGE, 7));
-            table.createCropDrops(ModBlocks.CHILI_CROP.get(), ModItems.CHILI.get(),ModBlocks.CHILI_CROP.asItem(),builder6);
+            table.createCropDrops(ModBlocks.CHILI_CROP.get(), ModItems.CHILI.get(),ModBlocks.CHILI_CROP.asItem(),builder);
         })
         .item()
         .model((context, provider) -> {
