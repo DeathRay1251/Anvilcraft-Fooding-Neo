@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage0"
+    },
+    "age=1": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage0"
+    },
+    "age=2": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage1"
+    },
+    "age=3": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage1"
+    },
+    "age=4": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage2"
+    },
+    "age=5": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage2"
+    },
+    "age=6": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage2"
+    },
+    "age=7": {
+      "model": "anvilcraft_fooding:block/chili_crop_stage3"
+    }
+  }
+}

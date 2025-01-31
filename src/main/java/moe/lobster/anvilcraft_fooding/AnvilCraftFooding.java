@@ -8,6 +8,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import moe.lobster.anvilcraft_fooding.event.listener.AnvilDiePlayerEventListener;
 import moe.lobster.anvilcraft_fooding.event.listener.AnvilEventListener;
+import moe.lobster.anvilcraft_fooding.init.ModBlocks;
 import moe.lobster.anvilcraft_fooding.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
@@ -32,6 +33,7 @@ public class AnvilCraftFooding {
 
     public AnvilCraftFooding(IEventBus modEventBus) {
         ModItems.register();
+        ModBlocks.register();
         registerEvents(modEventBus);
 
         LOGGER.info("Hi I'm MOE_LOBSTER");

@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "anvilcraft_fooding:block/chili_crop_stage2"
+  }
+}
