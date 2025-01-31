@@ -25,17 +25,17 @@ public class ModBlocks {
             .pushReaction(PushReaction.DESTROY))
         .blockstate((context, provider) -> {
         })
-        .loot((table,block)->{
+        .loot((table, block) -> {
             LootItemCondition.Builder builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CHILI_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ChiliBlock.AGE, 7));
-            table.createCropDrops(ModBlocks.CHILI_CROP.get(), ModItems.CHILI.get(),ModBlocks.CHILI_CROP.asItem(),builder);
+            table.add(block, table.createCropDrops(ModBlocks.CHILI_CROP.get(), ModItems.CHILI.get(), ModBlocks.CHILI_CROP.asItem(), builder));
         })
         .item()
         .model((context, provider) -> {
         })
         .tag()
-        .recipe((ctx,provider)->{
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ctx.get())
+        .recipe((ctx, provider) -> {
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get())
                 .requires(ModItems.CHILI.get())
                 .unlockedBy("has_chili", provider.has(ModItems.CHILI.get()))
                 .save(provider);
