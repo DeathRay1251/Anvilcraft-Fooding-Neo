@@ -58,7 +58,7 @@ public class ModBlocks {
         })
         .tag()
         .recipe((ctx, provider) ->
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get())
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(),3)
                 .requires(ModItems.CHILI.get())
                 .unlockedBy("has_chili", RegistrateRecipeProvider.has(ModItems.CHILI.get()))
                 .save(provider))

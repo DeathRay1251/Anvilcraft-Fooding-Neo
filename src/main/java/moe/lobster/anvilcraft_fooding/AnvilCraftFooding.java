@@ -10,6 +10,7 @@ import moe.lobster.anvilcraft_fooding.data.AnvilCraftFoodingDatagen;
 import moe.lobster.anvilcraft_fooding.event.listener.AnvilDiePlayerEventListener;
 import moe.lobster.anvilcraft_fooding.event.listener.AnvilEventListener;
 import moe.lobster.anvilcraft_fooding.init.ModBlocks;
+import moe.lobster.anvilcraft_fooding.init.ModItemGroups;
 import moe.lobster.anvilcraft_fooding.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
@@ -33,8 +34,11 @@ public class AnvilCraftFooding {
     public static final Registrate REGISTRATE = Registrate.create(MOD_ID);
 
     public AnvilCraftFooding(IEventBus modEventBus) {
+        ModItemGroups.register(modEventBus);
         ModItems.register();
         ModBlocks.register();
+
+
         //Datagen
         AnvilCraftFoodingDatagen.init();
         registerEvents(modEventBus);

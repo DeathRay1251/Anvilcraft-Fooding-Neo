@@ -1,6 +1,6 @@
 package moe.lobster.anvilcraft_fooding.event;
 
-import moe.lobster.anvilcraft_fooding.init.Rewards;
+import moe.lobster.anvilcraft_fooding.init.ModRewards;
 import moe.lobster.anvilcraft_fooding.utils.IHasFoodsDataInjector;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,16 +24,16 @@ public class FinishEating {
                 int buff = infoTag.getInt("Buff");
                 int depth = compoundTag.getInt(key);
                 times += 1;
-                if (times == Rewards.emotionLimit) {
+                if (times == ModRewards.emotionLimit) {
                     Random random = new Random();
                     like = random.nextInt(2) * 2 - 1;
                     if (like == 1) {
-                        buff = random.nextInt(0, Rewards.likeList.size());
+                        buff = random.nextInt(0, ModRewards.likeList.size());
                     } else {
-                        buff = random.nextInt(0, Rewards.unlikeList.size());
+                        buff = random.nextInt(0, ModRewards.unlikeList.size());
                     }
                 }
-                Rewards.giveRewards((ServerPlayer) player, like, times, buff, depth);
+                ModRewards.giveRewards((ServerPlayer) player, like, times, buff, depth);
                 CompoundTag newInfoTag = new CompoundTag();
                 newInfoTag.putInt("Like", like);
                 newInfoTag.putInt("Times", times);

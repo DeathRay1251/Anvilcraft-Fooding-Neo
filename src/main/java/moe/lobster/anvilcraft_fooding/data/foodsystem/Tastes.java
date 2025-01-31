@@ -21,7 +21,8 @@ public enum Tastes {
     MILK("milk"),//牛奶
     WESTERN("western"), // 西式
     CREAM("cream"),//奶油
-    BITTER("bitter");//苦
+    BITTER("bitter"),//苦
+    JAM("jam");//酱
 
 
     private final String taste;

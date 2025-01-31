@@ -9,4 +9,9 @@ public class ModFoods {
         .alwaysEdible()
         .fast()
         .build();
+    public static final FoodProperties CHILI_JAM = new FoodProperties.Builder()
+        .nutrition(2)
+        .saturationModifier(1.0f)
+        .alwaysEdible()
+        .build();
 }

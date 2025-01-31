@@ -14,7 +14,7 @@ import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rewards {
+public class ModRewards {
     public static final int emotionLimit = 4;
     public static List<Reward> likeList = new ArrayList<>();
     public static List<Reward> unlikeList = new ArrayList<>();

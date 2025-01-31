@@ -5,5 +5,6 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 public class RecipeHandler {
     public static void init(RegistrateRecipeProvider provider){
         MeshRecipeLoader.init(provider);
+        StampingRecipeLoader.init(provider);
     }
 }
