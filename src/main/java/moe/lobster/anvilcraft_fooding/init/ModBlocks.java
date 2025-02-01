@@ -33,6 +33,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 
 import java.util.function.Function;
@@ -125,6 +126,7 @@ public class ModBlocks {
         .tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
         .properties(
             p -> p
+                .noOcclusion()
                 .mapColor(MapColor.PLANT)
                 .randomTicks()
                 .sound(SoundType.GRASS)
@@ -141,6 +143,8 @@ public class ModBlocks {
 //        })
         .item()
         .model((context, provider) -> {
+            ResourceLocation location = AnvilCraftFooding.of("block/lemon_leave_stage0");
+            provider.withExistingParent(AnvilCraftFooding.MOD_ID + ":lemon_leave", location);
         })
         .build()
         .register();
