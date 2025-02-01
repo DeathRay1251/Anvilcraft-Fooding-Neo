@@ -21,6 +21,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -40,6 +41,7 @@ import java.util.function.Function;
 
 import static com.ibm.icu.impl.CurrencyData.provider;
 import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.REGISTRATE;
+import static moe.lobster.anvilcraft_fooding.init.ModTreeGrowers.LEMON_TREE_GROWER;
 
 public class ModBlocks {
     public static final BlockEntry<ChiliCropBlock> CHILI_CROP = REGISTRATE
@@ -86,7 +88,7 @@ public class ModBlocks {
 
     public static final BlockEntry<RotatedPillarBlock> LEMON_LOG = REGISTRATE
         .block("lemon_log", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE, BlockTags.OVERWORLD_NATURAL_LOGS, BlockTags.SNAPS_GOAT_HORN)
         .properties(
             p -> p
                 .mapColor(pro -> pro.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor.WOOD : MapColor.COLOR_BROWN)
@@ -147,6 +149,33 @@ public class ModBlocks {
             ResourceLocation blockModel = AnvilCraftFooding.of("block/lemon_leave_stage0");
             provider.withExistingParent(itemKey.toString(), blockModel);
         })
+        .build()
+        .register();
+
+    public static final BlockEntry<SaplingBlock> LEMON_SAPLING = REGISTRATE
+        .block("lemon_sapling", p -> new SaplingBlock(LEMON_TREE_GROWER, p))
+        .tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SAPLINGS)
+        .properties(
+            p -> p.noCollission()
+                .instabreak()
+                .randomTicks()
+                .mapColor(MapColor.PLANT)
+                .sound(SoundType.GRASS)
+                .pushReaction(PushReaction.DESTROY)
+                .ignitedByLava()
+        )
+        .blockstate(
+            (context, provider) ->
+                provider.simpleBlock(context.get(),
+                    provider.models().cross(context.getName(), provider.blockTexture(context.get())).renderType("cutout")
+                ))
+        .loot(RegistrateBlockLootTables::dropSelf)
+        .item()
+        .burnTime(100)
+        .model((ctx, provider) ->
+            provider.withExistingParent(ctx.getName(), provider.mcLoc("item/generated"))
+                .texture("layer0", provider.itemTexture(ctx))
+        )
         .build()
         .register();
 

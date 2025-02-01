@@ -57,7 +57,7 @@ public class FruitLeavesBlock extends LeavesBlock {
 
     @Override
     protected boolean isRandomlyTicking(BlockState state) {
-        return (state.getValue(DISTANCE) == 7 && !(Boolean) state.getValue(PERSISTENT)) || (!this.isMaxAge(state));
+        return !(state.getValue(DISTANCE) == 7 && state.getValue(PERSISTENT)) && (!this.isMaxAge(state));
     }
 
     @Override
