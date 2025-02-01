@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "anvilcraft_fooding:block/lemon_leave_stage0"
+  }
+}

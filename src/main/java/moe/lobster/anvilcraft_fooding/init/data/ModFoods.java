@@ -14,4 +14,8 @@ public class ModFoods {
         .saturationModifier(1.0f)
         .alwaysEdible()
         .build();
+    public static final FoodProperties LEMON = new FoodProperties.Builder()
+        .nutrition(2)
+        .saturationModifier(1.0f)
+        .build();
 }

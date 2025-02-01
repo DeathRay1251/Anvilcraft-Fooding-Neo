@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "anvilcraft_fooding:block/lemon_leave_stage0"
+    },
+    "age=1": {
+      "model": "anvilcraft_fooding:block/lemon_leave_stage1"
+    }
+  }
+}

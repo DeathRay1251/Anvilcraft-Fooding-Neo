@@ -2,7 +2,7 @@ package moe.lobster.anvilcraft_fooding.data.foodsystem;
 
 public enum Tastes {
     FRUIT("fruit"),//水果
-    HOT("hot"),//辣
+    SPICY("spicy"),//辣
     FULL("full"),//饱腹
     LUXURIOUS("luxurious"),//奢华
     MYSTERY("mystery"),//神秘
@@ -22,8 +22,8 @@ public enum Tastes {
     WESTERN("western"), // 西式
     CREAM("cream"),//奶油
     BITTER("bitter"),//苦
-    JAM("jam");//酱
-
+    JAM("jam"),//酱
+    SOUR("sour");//酸
 
     private final String taste;
 

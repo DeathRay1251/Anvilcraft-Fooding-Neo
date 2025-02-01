@@ -12,8 +12,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class ChiliBlock extends CropBlock {
-    public static final MapCodec<ChiliBlock> CODEC = simpleCodec(ChiliBlock::new);
+public class ChiliCropBlock extends CropBlock {
+    public static final MapCodec<ChiliCropBlock> CODEC = simpleCodec(ChiliCropBlock::new);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
         Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)2.0F, (double)16.0F),
         Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)3.0F, (double)16.0F),
@@ -24,10 +24,10 @@ public class ChiliBlock extends CropBlock {
         Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)8.0F, (double)16.0F),
         Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)9.0F, (double)16.0F)};
 
-    public ChiliBlock(Properties properties) {
+    public ChiliCropBlock(Properties properties) {
         super(properties);
     }
-    public @NotNull MapCodec<ChiliBlock> codec() {
+    public @NotNull MapCodec<ChiliCropBlock> codec() {
         return CODEC;
     }
     protected @NotNull ItemLike getBaseSeedId() {
