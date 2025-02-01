@@ -1,8 +1,10 @@
 package moe.lobster.anvilcraft_fooding.init;
 
+import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
 import moe.lobster.anvilcraft_fooding.block.ChiliCropBlock;
 import moe.lobster.anvilcraft_fooding.block.FruitLeavesBlock;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -12,6 +14,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -28,7 +31,13 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 
+import java.util.function.Function;
+
+import static com.ibm.icu.impl.CurrencyData.provider;
 import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.REGISTRATE;
 
 public class ModBlocks {
@@ -123,7 +132,11 @@ public class ModBlocks {
                 .ignitedByLava()
         )
         .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 30, 60))
-        .blockstate((context, provider) -> provider.simpleBlock(context.get(), provider.models().cubeAll(BuiltInRegistries.BLOCK.getKey(context.get()).getPath(), provider.blockTexture(context.get())).renderType("cutout")))
+        .blockstate((context, provider) -> {
+            VariantBlockStateBuilder variantBuilder = provider.getVariantBuilder(context.get());
+            leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 0), "lemon_leave_stage0");
+            leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 1), "lemon_leave_stage1");
+        })
 //        .blockstate((context, provider) -> {
 //        })
         .item()
@@ -133,5 +146,13 @@ public class ModBlocks {
         .register();
 
     public static void register() {
+    }
+
+    private static void leaveModule(RegistrateBlockstateProvider provider, VariantBlockStateBuilder variantBuilder, Function<VariantBlockStateBuilder.PartialBlockstate, VariantBlockStateBuilder.PartialBlockstate> stateFactory, String path) {
+        ResourceLocation location = AnvilCraftFooding.of("block/" + path);
+        BlockModelBuilder stage = provider.models().leaves(path, location).renderType("cutout");
+        VariantBlockStateBuilder.PartialBlockstate state = stateFactory.apply(variantBuilder.partialState());
+        variantBuilder.addModels(state, new ConfiguredModel(stage));
+
     }
 }
