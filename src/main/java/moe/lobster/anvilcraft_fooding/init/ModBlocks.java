@@ -153,6 +153,5 @@ public class ModBlocks {
         BlockModelBuilder stage = provider.models().leaves(path, location).renderType("cutout");
         VariantBlockStateBuilder.PartialBlockstate state = stateFactory.apply(variantBuilder.partialState());
         variantBuilder.addModels(state, new ConfiguredModel(stage));
-
     }
 }
