@@ -143,8 +143,9 @@ public class ModBlocks {
 //        })
         .item()
         .model((context, provider) -> {
-            ResourceLocation location = AnvilCraftFooding.of("block/lemon_leave_stage0");
-            provider.withExistingParent(AnvilCraftFooding.MOD_ID + ":lemon_leave", location);
+            ResourceLocation blockKey = BuiltInRegistries.BLOCK.getKey(context.get().getBlock());
+            ResourceLocation blockModel = AnvilCraftFooding.of("block/lemon_leave_stage0");
+            provider.withExistingParent(blockKey.toString(), blockModel);
         })
         .build()
         .register();
