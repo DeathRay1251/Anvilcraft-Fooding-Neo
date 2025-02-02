@@ -1,6 +1,7 @@
 package moe.lobster.anvilcraft_fooding.init;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import moe.lobster.anvilcraft_fooding.data.ModCompostable;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.FoodTagBuilder;
 import moe.lobster.anvilcraft_fooding.data.foodsystem.Tastes;
 import moe.lobster.anvilcraft_fooding.init.data.ModFoods;
@@ -26,6 +27,7 @@ public class ModItems {
                     .toCustomData()
             )
         )
+        .compostable(ModCompostable.FRUIT_CHANCE)
         .tag(Tags.Items.FOODS)
         .register();
     public static final ItemEntry<? extends Item> CHILI_JAM = REGISTRATE
@@ -39,6 +41,7 @@ public class ModItems {
                     .toCustomData()
             )
         )
+        .compostable(ModCompostable.FOOD_CHANCE)
         .tag(Tags.Items.FOODS)
         .register();
 
@@ -53,6 +56,7 @@ public class ModItems {
                     .toCustomData()
             )
         )
+        .compostable(ModCompostable.FRUIT_CHANCE)
         .tag(Tags.Items.FOODS)
         .register();
 

@@ -12,9 +12,11 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.providers.number.BinomialDistributionGenerator;
 
 public class MeshRecipeLoader {
-    public static void init(RegistrateRecipeProvider provider){
-        mesh(provider, Items.SHORT_GRASS, ModBlocks.CHILI_CROP.asItem(),0.01f);
+    public static void init(RegistrateRecipeProvider provider) {
+        mesh(provider, Items.SHORT_GRASS, ModBlocks.CHILI_CROP.asItem(), 0.01f);
+        mesh(provider, Items.ACACIA_LEAVES, ModBlocks.LEMON_SAPLING.asItem(), 0.01f);
     }
+
     private static void mesh(RegistrateRecipeProvider provider, ItemLike input, ItemLike result, float chance) {
         MeshRecipe.builder()
             .input(Ingredient.of(input))

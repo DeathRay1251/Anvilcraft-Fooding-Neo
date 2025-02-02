@@ -1,12 +1,13 @@
 package moe.lobster.anvilcraft_fooding.init;
 
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
 import moe.lobster.anvilcraft_fooding.block.ChiliCropBlock;
 import moe.lobster.anvilcraft_fooding.block.FruitLeavesBlock;
+import moe.lobster.anvilcraft_fooding.data.ModCompostable;
+import moe.lobster.anvilcraft_fooding.data.model.ModModelProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -31,11 +32,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
-
-import java.util.function.Function;
 
 import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.REGISTRATE;
 import static moe.lobster.anvilcraft_fooding.init.ModTreeGrowers.LEMON_TREE_GROWER;
@@ -72,9 +69,9 @@ public class ModBlocks {
             );
         })
         .item()
+        .compostable(ModCompostable.CROP_CHANCE)
         .model((context, provider) -> {
         })
-        .tag()
         .recipe((ctx, provider) ->
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 3)
                 .requires(ModItems.CHILI.get())
@@ -114,20 +111,23 @@ public class ModBlocks {
         .block("lemon_leave", FruitLeavesBlock::new)
         .tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
         .properties(
-            p-> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
         )
         .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 30, 60))
         .blockstate((context, provider) -> {
             VariantBlockStateBuilder variantBuilder = provider.getVariantBuilder(context.get());
-            leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 0), "lemon_leave_stage0");
-            leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 1), "lemon_leave_stage1");
+            ModModelProvider.leaveModel(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 0), context.getName(), "0");
+            ModModelProvider.leaveModel(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 1), context.getName(), "1");
         })
-//        .blockstate((context, provider) -> {
-//        })
+        .loot((tables, block) -> {
+                tables.add(ModBlocks.LEMON_LEAVE.get(), tables.createLeavesDrops(ModBlocks.LEMON_LEAVE.get(), ModBlocks.LEMON_SAPLING.get(), 0.2F, 0.4f));
+            }
+        )
         .item()
+        .compostable(ModCompostable.LEAVES_CHANCE)
         .model((context, provider) -> {
             ResourceLocation itemKey = BuiltInRegistries.ITEM.getKey(context.get());
-            ResourceLocation blockModel = AnvilCraftFooding.of("block/lemon_leave_stage0");
+            ResourceLocation blockModel = AnvilCraftFooding.of("block/" + context.getName() + "_stage0");
             provider.withExistingParent(itemKey.toString(), blockModel);
         })
         .build()
@@ -146,21 +146,15 @@ public class ModBlocks {
                 ))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
+        .compostable(ModCompostable.SAPLING_CHANCE)
         .burnTime(100)
         .model((ctx, provider) ->
             provider.withExistingParent(ctx.getName(), provider.mcLoc("item/generated"))
-                .texture("layer0", provider.itemTexture(ctx))
+                .texture("layer0", AnvilCraftFooding.of("block/" + ctx.getName()).toString())
         )
         .build()
         .register();
 
     public static void register() {
-    }
-
-    private static void leaveModule(RegistrateBlockstateProvider provider, VariantBlockStateBuilder variantBuilder, Function<VariantBlockStateBuilder.PartialBlockstate, VariantBlockStateBuilder.PartialBlockstate> stateFactory, String path) {
-        ResourceLocation location = AnvilCraftFooding.of("block/" + path);
-        BlockModelBuilder stage = provider.models().leaves(path, location).renderType("cutout");
-        VariantBlockStateBuilder.PartialBlockstate state = stateFactory.apply(variantBuilder.partialState());
-        variantBuilder.addModels(state, new ConfiguredModel(stage));
     }
 }
