@@ -16,6 +16,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
@@ -107,6 +108,7 @@ public class ModBlocks {
         .burnTime(300)
         .build()
         .register();
+
     public static final BlockEntry<FruitLeavesBlock> LEMON_LEAVE = REGISTRATE
         .block("lemon_leave", FruitLeavesBlock::new)
         .tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
@@ -146,6 +148,7 @@ public class ModBlocks {
                 ))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
+        .tag(ItemTags.SAPLINGS)
         .compostable(ModCompostable.SAPLING_CHANCE)
         .burnTime(100)
         .model((ctx, provider) ->
