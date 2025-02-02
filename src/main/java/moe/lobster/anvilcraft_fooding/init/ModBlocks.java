@@ -33,12 +33,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 
 import java.util.function.Function;
 
-import static com.ibm.icu.impl.CurrencyData.provider;
 import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.REGISTRATE;
 
 public class ModBlocks {
@@ -139,8 +137,6 @@ public class ModBlocks {
             leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 0), "lemon_leave_stage0");
             leaveModule(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 1), "lemon_leave_stage1");
         })
-//        .blockstate((context, provider) -> {
-//        })
         .item()
         .model((context, provider) -> {
             ResourceLocation itemKey = BuiltInRegistries.ITEM.getKey(context.get());

@@ -36,7 +36,11 @@ public class FruitLeavesBlock extends LeavesBlock {
 
     public FruitLeavesBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
+        this.registerDefaultState((((this.stateDefinition.any())
+            .setValue(DISTANCE, DECAY_DISTANCE))
+            .setValue(PERSISTENT, false))
+            .setValue(WATERLOGGED, false)
+            .setValue(AGE,0));
     }
 
     protected IntegerProperty getAgeProperty() {
@@ -44,11 +48,11 @@ public class FruitLeavesBlock extends LeavesBlock {
     }
 
     public int getMaxAge() {
-        return 1;
+        return MAX_AGE;
     }
 
     public final boolean isMaxAge(BlockState state) {
-        return this.getAge(state) >= this.getMaxAge();
+        return this.getAge(state) == this.getMaxAge();
     }
 
     public int getAge(BlockState state) {
@@ -56,7 +60,7 @@ public class FruitLeavesBlock extends LeavesBlock {
     }
 
     @Override
-    protected boolean isRandomlyTicking(BlockState state) {
+    protected boolean isRandomlyTicking(@NotNull BlockState state) {
         return (state.getValue(DISTANCE) == 7 && !(Boolean) state.getValue(PERSISTENT)) || (!this.isMaxAge(state));
     }
 
