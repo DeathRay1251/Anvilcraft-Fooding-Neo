@@ -1,6 +1,5 @@
 package moe.lobster.anvilcraft_fooding.block;
 
-import com.mojang.serialization.MapCodec;
 import moe.lobster.anvilcraft_fooding.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -24,23 +23,16 @@ import net.neoforged.neoforge.common.CommonHooks;
 import org.jetbrains.annotations.NotNull;
 
 public class FruitLeavesBlock extends LeavesBlock {
-
-    public static final MapCodec<FruitLeavesBlock> CODEC = simpleCodec(FruitLeavesBlock::new);
     public static final int MAX_AGE = 1;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_1;
-
-    @Override
-    public @NotNull MapCodec<FruitLeavesBlock> codec() {
-        return CODEC;
-    }
 
     public FruitLeavesBlock(Properties properties) {
         super(properties);
         this.registerDefaultState((((this.stateDefinition.any())
-            .setValue(DISTANCE, DECAY_DISTANCE))
-            .setValue(PERSISTENT, false))
-            .setValue(WATERLOGGED, false)
-            .setValue(AGE,0));
+//            .setValue(DISTANCE, DECAY_DISTANCE))
+//            .setValue(PERSISTENT, false))
+//            .setValue(WATERLOGGED, false)
+            .setValue(AGE, 0))));
     }
 
     protected IntegerProperty getAgeProperty() {
