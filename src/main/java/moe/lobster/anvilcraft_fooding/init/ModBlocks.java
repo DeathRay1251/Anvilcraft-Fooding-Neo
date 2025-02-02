@@ -8,7 +8,6 @@ import moe.lobster.anvilcraft_fooding.AnvilCraftFooding;
 import moe.lobster.anvilcraft_fooding.block.ChiliCropBlock;
 import moe.lobster.anvilcraft_fooding.block.FruitLeavesBlock;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +22,7 @@ import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -34,12 +33,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 
 import java.util.function.Function;
 
-import static com.ibm.icu.impl.CurrencyData.provider;
 import static moe.lobster.anvilcraft_fooding.AnvilCraftFooding.REGISTRATE;
 import static moe.lobster.anvilcraft_fooding.init.ModTreeGrowers.LEMON_TREE_GROWER;
 
@@ -88,14 +85,9 @@ public class ModBlocks {
 
     public static final BlockEntry<RotatedPillarBlock> LEMON_LOG = REGISTRATE
         .block("lemon_log", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE, BlockTags.OVERWORLD_NATURAL_LOGS, BlockTags.SNAPS_GOAT_HORN)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
         .properties(
-            p -> p
-                .mapColor(pro -> pro.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor.WOOD : MapColor.COLOR_BROWN)
-                .instrument(NoteBlockInstrument.BASS)
-                .strength(2.0F)
-                .sound(SoundType.WOOD)
-                .ignitedByLava()
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
         )
         .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
         .blockstate((context, provider) -> provider.logBlock(context.get()))
@@ -109,12 +101,7 @@ public class ModBlocks {
         .block("lemon_wood", RotatedPillarBlock::new)
         .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
         .properties(
-            p -> p
-                .mapColor(MapColor.COLOR_BROWN)
-                .instrument(NoteBlockInstrument.BASS)
-                .strength(2.0F)
-                .sound(SoundType.WOOD)
-                .ignitedByLava()
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
         )
         .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
         .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(LEMON_LOG.get()), provider.blockTexture(LEMON_LOG.get())))
@@ -127,13 +114,7 @@ public class ModBlocks {
         .block("lemon_leave", FruitLeavesBlock::new)
         .tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
         .properties(
-            p -> p
-                .noOcclusion()
-                .mapColor(MapColor.PLANT)
-                .randomTicks()
-                .sound(SoundType.GRASS)
-                .pushReaction(PushReaction.DESTROY)
-                .ignitedByLava()
+            p-> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
         )
         .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 30, 60))
         .blockstate((context, provider) -> {
@@ -156,13 +137,7 @@ public class ModBlocks {
         .block("lemon_sapling", p -> new SaplingBlock(LEMON_TREE_GROWER, p))
         .tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SAPLINGS)
         .properties(
-            p -> p.noCollission()
-                .instabreak()
-                .randomTicks()
-                .mapColor(MapColor.PLANT)
-                .sound(SoundType.GRASS)
-                .pushReaction(PushReaction.DESTROY)
-                .ignitedByLava()
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
         )
         .blockstate(
             (context, provider) ->

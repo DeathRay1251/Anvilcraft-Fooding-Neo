@@ -1,6 +1,5 @@
 package moe.lobster.anvilcraft_fooding.block;
 
-import com.mojang.serialization.MapCodec;
 import moe.lobster.anvilcraft_fooding.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -24,19 +23,12 @@ import net.neoforged.neoforge.common.CommonHooks;
 import org.jetbrains.annotations.NotNull;
 
 public class FruitLeavesBlock extends LeavesBlock {
-
-    public static final MapCodec<FruitLeavesBlock> CODEC = simpleCodec(FruitLeavesBlock::new);
     public static final int MAX_AGE = 1;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_1;
 
-    @Override
-    public @NotNull MapCodec<FruitLeavesBlock> codec() {
-        return CODEC;
-    }
-
     public FruitLeavesBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, 7).setValue(PERSISTENT, false).setValue(WATERLOGGED, false).setValue(AGE, 0));
     }
 
     protected IntegerProperty getAgeProperty() {
@@ -48,7 +40,7 @@ public class FruitLeavesBlock extends LeavesBlock {
     }
 
     public final boolean isMaxAge(BlockState state) {
-        return this.getAge(state) >= this.getMaxAge();
+        return this.getAge(state) == this.getMaxAge();
     }
 
     public int getAge(BlockState state) {
@@ -57,7 +49,7 @@ public class FruitLeavesBlock extends LeavesBlock {
 
     @Override
     protected boolean isRandomlyTicking(BlockState state) {
-        return !(state.getValue(DISTANCE) == 7 && state.getValue(PERSISTENT)) && (!this.isMaxAge(state));
+        return state.getValue(DISTANCE) == 7 && !(Boolean)state.getValue(PERSISTENT) || (!this.isMaxAge(state));
     }
 
     @Override
