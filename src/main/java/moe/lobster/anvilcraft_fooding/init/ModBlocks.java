@@ -43,6 +43,7 @@ import static moe.lobster.anvilcraft_fooding.init.ModTreeGrowers.LEMON_TREE_GROW
 public class ModBlocks {
     public static final BlockEntry<ChiliCropBlock> CHILI_CROP = REGISTRATE
         .block("chili_crop", ChiliCropBlock::new)
+        .tag(BlockTags.CROPS)
         .properties(p -> p
             .mapColor(MapColor.PLANT)
             .noCollission()
@@ -85,7 +86,7 @@ public class ModBlocks {
 
     public static final BlockEntry<RotatedPillarBlock> LEMON_LOG = REGISTRATE
         .block("lemon_log", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE,ModBlockTags.LEMON_LOG)
         .properties(
             p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
         )
@@ -93,14 +94,14 @@ public class ModBlocks {
         .blockstate((context, provider) -> provider.logBlock(context.get()))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
-        .tag(ItemTags.LOGS)
+        .tag(ItemTags.LOGS,ModItemTags.LEMON_LOG)
         .burnTime(300)
         .build()
         .register();
 
     public static final BlockEntry<RotatedPillarBlock> STRIPPED_LEMON_LOG = REGISTRATE
         .block("stripped_lemon_log", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE,ModBlockTags.LEMON_LOG)
         .properties(
             p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
         )
@@ -108,14 +109,14 @@ public class ModBlocks {
         .blockstate((context, provider) -> provider.logBlock(context.get()))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
-        .tag(ItemTags.LOGS)
+        .tag(ItemTags.LOGS,ModItemTags.LEMON_LOG)
         .burnTime(300)
         .build()
         .register();
 
     public static final BlockEntry<RotatedPillarBlock> LEMON_WOOD = REGISTRATE
         .block("lemon_wood", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE,ModBlockTags.LEMON_LOG)
         .properties(
             p -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
         )
@@ -123,20 +124,6 @@ public class ModBlocks {
         .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(LEMON_LOG.get()), provider.blockTexture(LEMON_LOG.get())))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
-        .tag(ItemTags.LOGS)
-        .burnTime(300)
-        .build()
-        .register();
-
-    public static final BlockEntry<RotatedPillarBlock> STRIPPED_LEMON_WOOD = REGISTRATE
-        .block("stripped_lemon_wood", RotatedPillarBlock::new)
-        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
-        .properties(
-            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
-        )
-        .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
-        .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get()), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get())))
-        .loot(RegistrateBlockLootTables::dropSelf)
         .recipe((ctx, provider) ->
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,ctx.get(),3)
                 .pattern("AA")
@@ -145,8 +132,22 @@ public class ModBlocks {
                 .unlockedBy("has_lemon_log", RegistrateRecipeProvider.has(ModBlocks.LEMON_LOG.get()))
                 .save(provider)
         )
+        .tag(ItemTags.LOGS,ModItemTags.LEMON_LOG)
+        .burnTime(300)
+        .build()
+        .register();
+
+    public static final BlockEntry<RotatedPillarBlock> STRIPPED_LEMON_WOOD = REGISTRATE
+        .block("stripped_lemon_wood", RotatedPillarBlock::new)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE,ModBlockTags.LEMON_LOG)
+        .properties(
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+        )
+        .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
+        .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get()), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get())))
+        .loot(RegistrateBlockLootTables::dropSelf)
         .item()
-        .tag(ItemTags.LOGS)
+        .tag(ItemTags.LOGS,ModItemTags.LEMON_LOG)
         .burnTime(300)
         .build()
         .register();
@@ -162,15 +163,9 @@ public class ModBlocks {
             provider.simpleBlock(context.get());
         })
         .recipe((ctx, provider) ->
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 4)
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ctx.get(), 4)
                 .requires(ModBlocks.LEMON_LOG.get())
-                .unlockedBy("has_lemon_log", RegistrateRecipeProvider.has(ModBlocks.LEMON_LOG.get()))
-                .save(provider)
-        )
-        .recipe((ctx, provider) ->
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 4)
-                .requires(ModBlocks.LEMON_WOOD.get())
-                .unlockedBy("has_lemon_wood", RegistrateRecipeProvider.has(ModBlocks.LEMON_WOOD.get()))
+                .unlockedBy("has_lemon_log_tag", RegistrateRecipeProvider.has(ModItemTags.LEMON_LOG))
                 .save(provider)
         )
         .item()
