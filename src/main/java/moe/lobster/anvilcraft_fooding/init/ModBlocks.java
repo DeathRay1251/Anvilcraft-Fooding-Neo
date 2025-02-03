@@ -13,12 +13,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -126,6 +128,57 @@ public class ModBlocks {
         .build()
         .register();
 
+    public static final BlockEntry<RotatedPillarBlock> STRIPPED_LEMON_WOOD = REGISTRATE
+        .block("stripped_lemon_wood", RotatedPillarBlock::new)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .properties(
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+        )
+        .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
+        .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get()), provider.blockTexture(ModBlocks.STRIPPED_LEMON_LOG.get())))
+        .loot(RegistrateBlockLootTables::dropSelf)
+        .recipe((ctx, provider) ->
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,ctx.get(),3)
+                .pattern("AA")
+                .pattern("AA")
+                .define('A', ModBlocks.LEMON_LOG.get())
+                .unlockedBy("has_lemon_log", RegistrateRecipeProvider.has(ModBlocks.LEMON_LOG.get()))
+                .save(provider)
+        )
+        .item()
+        .tag(ItemTags.LOGS)
+        .burnTime(300)
+        .build()
+        .register();
+
+    public static final BlockEntry<Block> LEMON_PLANKS = REGISTRATE
+        .block("lemon_planks", Block::new)
+        .tag(BlockTags.PLANKS, BlockTags.MINEABLE_WITH_AXE)
+        .properties(
+            p->BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+        )
+        .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 20))
+        .blockstate((context, provider) -> {
+            provider.simpleBlock(context.get());
+        })
+        .recipe((ctx, provider) ->
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 4)
+                .requires(ModBlocks.LEMON_LOG.get())
+                .unlockedBy("has_lemon_log", RegistrateRecipeProvider.has(ModBlocks.LEMON_LOG.get()))
+                .save(provider)
+        )
+        .recipe((ctx, provider) ->
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 4)
+                .requires(ModBlocks.LEMON_WOOD.get())
+                .unlockedBy("has_lemon_wood", RegistrateRecipeProvider.has(ModBlocks.LEMON_WOOD.get()))
+                .save(provider)
+        )
+        .item()
+        .tag(ItemTags.PLANKS)
+        .burnTime(300)
+        .build()
+        .register();
+
     public static final BlockEntry<FruitLeavesBlock> LEMON_LEAVE = REGISTRATE
         .block("lemon_leave", FruitLeavesBlock::new)
         .tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
@@ -138,9 +191,8 @@ public class ModBlocks {
             ModModelProvider.leaveModel(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 0), context.getName(), "0");
             ModModelProvider.leaveModel(provider, variantBuilder, state -> state.with(FruitLeavesBlock.AGE, 1), context.getName(), "1");
         })
-        .loot((tables, block) -> {
-                tables.add(ModBlocks.LEMON_LEAVE.get(), tables.createLeavesDrops(ModBlocks.LEMON_LEAVE.get(), ModBlocks.LEMON_SAPLING.get(), 0.2F, 0.4f));
-            }
+        .loot((tables, block) ->
+            tables.add(ModBlocks.LEMON_LEAVE.get(), tables.createLeavesDrops(ModBlocks.LEMON_LEAVE.get(), ModBlocks.LEMON_SAPLING.get(), 0.2F, 0.4f))
         )
         .item()
         .compostable(ModCompostable.LEAVES_CHANCE)
