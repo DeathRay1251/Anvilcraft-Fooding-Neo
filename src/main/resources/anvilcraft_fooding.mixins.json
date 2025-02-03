@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "anvilcraft_fooding.refmap.json",
   "mixins": [
+    "AxeItemMixin",
     "ItemMixin",
     "ItemStackMixin",
     "ServerPlayerMixin"

@@ -91,6 +91,22 @@ public class ModBlocks {
         .blockstate((context, provider) -> provider.logBlock(context.get()))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
+        .tag(ItemTags.LOGS)
+        .burnTime(300)
+        .build()
+        .register();
+
+    public static final BlockEntry<RotatedPillarBlock> STRIPPED_LEMON_LOG = REGISTRATE
+        .block("stripped_lemon_log", RotatedPillarBlock::new)
+        .tag(BlockTags.LOGS, BlockTags.LOGS_THAT_BURN, BlockTags.MINEABLE_WITH_AXE)
+        .properties(
+            p -> BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
+        )
+        .onRegisterAfter(Registries.BLOCK, ctx -> ((FireBlock) Blocks.FIRE).setFlammable(ctx, 5, 5))
+        .blockstate((context, provider) -> provider.logBlock(context.get()))
+        .loot(RegistrateBlockLootTables::dropSelf)
+        .item()
+        .tag(ItemTags.LOGS)
         .burnTime(300)
         .build()
         .register();
@@ -105,6 +121,7 @@ public class ModBlocks {
         .blockstate((context, provider) -> provider.axisBlock(context.get(), provider.blockTexture(LEMON_LOG.get()), provider.blockTexture(LEMON_LOG.get())))
         .loot(RegistrateBlockLootTables::dropSelf)
         .item()
+        .tag(ItemTags.LOGS)
         .burnTime(300)
         .build()
         .register();
